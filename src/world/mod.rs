@@ -1,13 +1,14 @@
 use bevy::prelude::*;
 
-use crate::{
-    consts::{GROUND_LEVEL, GROUND_WIDTH},
-    engine::state_manager::{GameState, OnGameplayScreen},
-};
+use crate::engine::state_manager::{GameState, OnGameplayScreen};
 
 pub(super) fn plugin(app: &mut App) {
     app.add_systems(OnEnter(GameState::InGame), spawn_ground);
 }
+
+pub(crate) const GROUND_LEVEL: f32 = -200.0;
+pub(crate) const GROUND_WIDTH: f32 = 1200.0;
+
 fn spawn_ground(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,

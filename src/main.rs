@@ -1,10 +1,9 @@
 use bevy::prelude::*;
 
-mod consts;
-pub mod engine;
+pub(crate) mod engine;
 mod player;
 mod ui;
-mod world;
+pub(crate) mod world;
 
 fn main() {
     let mut app = App::new();

@@ -2,9 +2,9 @@ use bevy::prelude::*;
 use bevy_enhanced_input::prelude::*;
 
 use crate::{
-    consts::{GRAVITY, GROUND_LEVEL, GROUND_WIDTH, JUMP_VELOCITY, PLAYER},
     engine::state_manager::GameState,
     player::{Character, CharacterPhysics},
+    world::{GROUND_LEVEL, GROUND_WIDTH},
 };
 
 pub(super) fn plugin(app: &mut App) {
@@ -17,6 +17,10 @@ pub(super) fn plugin(app: &mut App) {
         .add_observer(apply_movement)
         .add_observer(apply_jump);
 }
+
+const PLAYER: Vec2 = Vec2::new(128.0, 128.0);
+const JUMP_VELOCITY: f32 = 300.0;
+const GRAVITY: f32 = 900.0;
 
 #[derive(Debug, InputAction)]
 #[action_output(f32)]

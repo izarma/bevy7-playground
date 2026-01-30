@@ -2,7 +2,7 @@ use std::time::Duration;
 
 use bevy::prelude::*;
 
-use crate::{consts::ANIMATION_FPS, engine::AppSystems, player::CharacterPhysics};
+use crate::{engine::AppSystems, player::CharacterPhysics};
 
 pub(super) fn plugin(app: &mut App) {
     app.add_systems(
@@ -13,6 +13,8 @@ pub(super) fn plugin(app: &mut App) {
         ),
     );
 }
+
+const ANIMATION_FPS: f32 = 8.0;
 
 fn update_animation_timer(time: Res<Time>, mut query: Query<&mut PlayerAnimation>) {
     for mut animation in &mut query {
@@ -68,6 +70,7 @@ impl PlayerAnimation {
     const IDLE_FRAMES: usize = 7;
     const WALK_FRAMES: usize = 8;
     const JUMP_FRAMES: usize = 12;
+
     fn idling() -> Self {
         Self {
             timer: Timer::from_seconds(1.0 / ANIMATION_FPS, TimerMode::Repeating),
