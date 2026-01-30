@@ -1,0 +1,9 @@
+[package]
+name = "temp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = "0.18"
+bevy_asset_loader = "0.25.0"
+bevy_enhanced_input = "0.22.2"
